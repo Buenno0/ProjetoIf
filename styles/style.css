@@ -1,0 +1,164 @@
+
+       :root {
+    --green--if: #008000; /* Verde do if */
+    --white--if: #ffffff; /* Branco */
+    --grey--if: #f9f9f9;  /* Cinza claro */
+    --black--if: #000000; /* Preto */
+    --border--if: #ccc;   /* Cinza para borda */
+    --text--primary: #555; /* Cor primária do texto */
+    --hover--bg: #f0f0f0; /* Cor de fundo no hover */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--grey--if);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--white--if);
+    padding: 20px; /* Adiciona um padding para dar um espaçamento interno */
+}
+
+header {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white--if);
+    border-bottom: 1px solid var(--border--if);
+    position: sticky;
+    top: 0;
+}
+
+.back-button {
+    width: 44px;
+    text-decoration: none;
+    color: var(--black--if);
+}
+
+.logo {
+    height: 80px;
+}
+
+h1 {
+    margin: 20px 0;
+    color: var(--black--if);
+}
+
+h1 span {
+    color: var(--green--if);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 25px;
+    font-size: 22px;
+    color: var(--text--primary);
+    border: 1px solid var(--border--if);
+    border-radius: 30px;
+    background-color: var(--white--if);
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    width: 42vh;
+    height: 12vh;
+}
+
+.btn img {
+    margin-right: 10px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px; /* Ensure all icons have the same width */
+}
+
+.btn:hover {
+    background-color: var(--hover--bg);
+}
+
+.container_criticas {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.add-review-button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-review-button:hover {
+    background-color: #45a049;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 1.5vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    word-break: break-all;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.user-icon {
+    height: 50px;
+    width: 40px;
+    margin-right: 10px;
+    opacity: 0.5;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+}
+.criticas_h1{
+    margin: 20px 0;
+    color: var(--black--if);
+    text-align: center;
+}

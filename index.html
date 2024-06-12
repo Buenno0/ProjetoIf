@@ -4,123 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Federal - Feedback</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            max-width: 400px;
-            width: 100%;
-            margin: 0 20px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #fff;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .back-button {
-            width: 44px;
-            text-decoration: none;
-            color: #000;
-        }
-
-        .logo {
-            height: 80px;
-        }
-
-        h1 {
-            margin: 20px 0;
-            color: #003366;
-        }
-
-        h1 span {
-            color: #008000;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 10px;
-            font-size: 18px;
-            color: #555;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #fff;
-            cursor: pointer;
-            text-align: left;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn img {
-            margin-right: 10px;
-            width: 24px;
-            height: 24px;
-            min-width: 24px; /* Ensure all icons have the same width */
-        }
-
-        .btn:hover {
-            background-color: #f0f0f0;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
+    <header>
+        <a href="#"><img class="back-button" src="assets/back-button.svg" alt="Voltar"></a>
+        <img src="assets/ifsp_logo_itp.png" alt="Instituto Federal" class="logo">
+    </header>
     <div class="container">
-        <header>
-            <a href="#"><img class="back-button" src="assets/back-button.svg"> </a>
-            <img src="assets/ifsp_logo_itp.png"  alt="Instituto Federal" class="logo">
-        </header>
-        <main>
-            <h1>Queremos ouvir <span>você!</span></h1>
-            <div class="buttons">
-                <button class="btn">
-                    <img class="icon" src="assets/critica.svg" alt="Críticas">
-                    Críticas
-                </button>
-                <button class="btn">
-                    <img class="icon" src="assets/sugestoes.svg" alt="Sugestões">
-                    Sugestões
-                </button>
-                <button class="btn">
-                    <img class="icon" src="assets/contatos.svg" alt="Contatos">
-                    Contatos
-                </button>
-                <button class="btn">
-                    <img class="icon" src="assets/avaliacoes.svg" alt="Avaliações">
-                    Avaliações
-                </button>
-                <button class="btn">
-                    <img class="icon" src="assets/denuncia.svg" alt="Denúncias">
-                    Denúncias
-                </button>
-            </div>
-        </main>
+        <h1>Queremos ouvir <span>você!</span></h1>
+        <div class="buttons">
+            <button class="btn">
+                <img class="icon" src="assets/critica.svg" alt="Críticas">
+                Críticas
+            </button>
+            <button class="btn">
+                <img class="icon" src="assets/sugestoes.svg" alt="Sugestões">
+                Sugestões
+            </button>
+            <button class="btn">
+                <img class="icon" src="assets/contatos.svg" alt="Contatos">
+                Contatos
+            </button>
+            <button class="btn">
+                <img class="icon" src="assets/avaliacoes.svg" alt="Avaliações">
+                Avaliações
+            </button>
+            <button class="btn">
+                <img class="icon" src="assets/denuncia.svg" alt="Denúncias">
+                Denúncias
+            </button>
+        </div>
     </div>
 </body>
 </html>
