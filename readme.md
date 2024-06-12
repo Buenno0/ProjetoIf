@@ -1,5 +1,5 @@
 # Projeto de Feedback e Sugestões para Alunos do IFSP Itapetininga
-##Gabriel Kortz, Mateus Bueno e Natan Mendes.
+## Gabriel Kortz, Mateus Bueno e Natan Mendes.
 ## Com supervisão do Prof. Carlos Henrique
 
 ## Descrição do Projeto
