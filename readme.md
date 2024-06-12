@@ -36,6 +36,6 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 ## Contato
 
-**bueno.mateus@aluno.ifsp.edu.br**
-**g.kortz@aluno.ifsp.edu.br**
-**natan.mendes@aluno.ifsp.edu.br**
+- **bueno.mateus@aluno.ifsp.edu.br**
+- **g.kortz@aluno.ifsp.edu.br**
+- **natan.mendes@aluno.ifsp.edu.br**
