@@ -36,6 +36,6 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 ## Contato
 
-Para mais informações, entre em contato com a coordenação do IFSP Itapetininga.
-
----
+bueno.mateus@aluno.ifsp.edu.br
+g.kortz@aluno.ifsp.edu.br
+natan.mendes@aluno.ifsp.edu.br
