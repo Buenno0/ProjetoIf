@@ -85,7 +85,6 @@ h1 span {
     cursor: pointer;
     text-align: left;
     transition: background-color 0.3s ease;
-    width: 42vh;
     height: 12vh;
 }
 
