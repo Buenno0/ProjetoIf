@@ -78,6 +78,58 @@ h1 span {
     width: 100%;
     max-width: 400px;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--grey--if);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 100%;
+    height: 45vh;
+    padding: 10px;
+    border: 1px solid var(--border--if);
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--text--primary);
+    resize: vertical;
+    background-color: var(--hover--bg);
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--green--if);
+}
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border--if);
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--text--primary);
+    background-color: var(--hover--bg);
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    outline: none;
+}
+label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: var(--text--primary);
+    font-family: Arial, sans-serif;
+}
 
 .btn {
     display: flex;
@@ -129,7 +181,7 @@ h1 span {
 .add-feedback {
     width: 55vh; /* Ajuste a largura conforme necessário */
     max-width: 400px; /* Ou qualquer valor desejado */
-    margin: 10px auto 20px; /* Altera a margem para centralizar */
+    margin: 5vh auto 20px; /* Altera a margem para centralizar */
     padding: 20px;
     background-color: var(--green--if);
     color: white;
