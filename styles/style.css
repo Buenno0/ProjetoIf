@@ -121,7 +121,7 @@ h1 span {
 }
 
 .add-feedback {
-    width: 90vh; /* Ajuste a largura conforme necessário */
+    width: 55vh; /* Ajuste a largura conforme necessário */
     max-width: 400px; /* Ou qualquer valor desejado */
     margin: 10px auto 20px; /* Altera a margem para centralizar */
     padding: 20px;
