@@ -153,7 +153,7 @@ h1 span {
 @media (max-width: 480px) {
     .add-feedback {
         width: 90vw; /* Ajuste a largura para 90% da largura da viewport */
-        font-size: 16px; /* Ajusta o tamanho da fonte */
+        font-size: 20px; /* Ajusta o tamanho da fonte */
         padding: 20px; /* Ajusta o padding */
     }
 }
