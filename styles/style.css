@@ -7,6 +7,7 @@
     --border--if: #ccc;   /* Cinza para borda */
     --text--primary: #555; /* Cor primária do texto */
     --hover--bg: #f0f0f0; /* Cor de fundo no hover */
+    --hover--btn: #45a049; /* Cor de fundo no hover do botão */
 }
 
 * {
@@ -110,7 +111,7 @@ h1 span {
     display: block;
     width: 100%;
     padding: 20px;
-    background-color: #4CAF50;
+    background-color: var(--green--if);
     color: white;
     border: none;
     border-radius: 30px;
@@ -119,8 +120,26 @@ h1 span {
     margin-bottom: 20px;
 }
 
+.add-feedback {
+    width: 90vh; /* Ajuste a largura conforme necessário */
+    max-width: 400px; /* Ou qualquer valor desejado */
+    margin: 10px auto 20px; /* Altera a margem para centralizar */
+    padding: 20px;
+    background-color: var(--green--if);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.add-feedback:hover {
+    background-color: var(--hover--btn);
+}
+
 .add-review-button:hover {
-    background-color: #45a049;
+    background-color: var(--hover--btn);
 }
 
 .reviews {
