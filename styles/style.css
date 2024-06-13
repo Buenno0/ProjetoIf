@@ -133,6 +133,25 @@ h1 span {
     cursor: pointer;
 }
 
+/* Para dispositivos com largura máxima de 768px (tablets e abaixo) */
+@media (max-width: 768px) {
+    .add-feedback {
+        width: 80vw; /* Ajuste a largura para 80% da largura da viewport */
+        max-width: none; /* Remove o limite máximo de largura */
+        font-size: 18px; /* Ajusta o tamanho da fonte */
+        padding: 15px; /* Ajusta o padding */
+    }
+}
+
+/* Para dispositivos com largura máxima de 480px (telefones e abaixo) */
+@media (max-width: 480px) {
+    .add-feedback {
+        width: 90vw; /* Ajuste a largura para 90% da largura da viewport */
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+        padding: 20px; /* Ajusta o padding */
+    }
+}
+
 
 .add-feedback:hover {
     background-color: var(--hover--btn);
