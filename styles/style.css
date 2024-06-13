@@ -41,7 +41,7 @@ header {
     justify-content: space-between;
     background-color: var(--white--if);
     border-bottom: 1px solid var(--border--if);
-    position: sticky;
+    /* position: sticky; */
     top: 0;
 }
 
