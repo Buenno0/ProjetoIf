@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Federal - avaliação</title>
     <link rel="stylesheet" href="/ProjetoIf/styles/style.css">
+    <script defer src="/ProjetoIf/scripts/main.js"></script>
 </head>
 <body>
     <header>
@@ -13,15 +14,15 @@
     <div class="container">
         <h1>Deixe sua avaliação</h1>
         <div class="buttons">
-            <button class="btn">
+            <button class="btn" id="bad">
                 <img class="icon" src="/ProjetoIf/assets/bad.svg" alt="ruim">
                 Ruim
             </button>
-            <button class="btn">
+            <button class="btn" id="mid">
                 <img class="icon" src="/ProjetoIf/assets/mid.svg" alt="medio">
                 Médio
             </button>
-            <button class="btn">
+            <button class="btn" id="good">
                 <img class="icon" src="/ProjetoIf/assets/good.svg" alt="bom">
                 Bom
             </button>
@@ -30,3 +31,19 @@
     </div>   
 </body>
 </html>
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove a classe 'selected' de todos os botões
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            // Adiciona a classe 'selected' ao botão clicado
+            button.classList.add('selected');
+        });
+    });
+});
+
+</script>

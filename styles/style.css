@@ -139,12 +139,18 @@ label {
     font-size: 22px;
     color: var(--text--primary);
     border: 1px solid var(--border--if);
-    border-radius: 30px;
+    border-radius: 4vh;
     background-color: var(--white--if);
     cursor: pointer;
     text-align: left;
     transition: background-color 0.3s ease;
     height: 12vh;
+    opacity: 0.9;
+}
+.btn.selected {
+    background-color: var(--hover--bg); 
+    border: 1px solid var(--green--if);
+    opacity: 1;
 }
 
 .btn img {
