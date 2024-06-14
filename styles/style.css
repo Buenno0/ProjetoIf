@@ -8,6 +8,7 @@
     --text--primary: #555; /* Cor primária do texto */
     --hover--bg: #f0f0f0; /* Cor de fundo no hover */
     --hover--btn: #45a049; /* Cor de fundo no hover do botão */
+    --error: red; /* Cor de erro */
 }
 
 * {
@@ -317,4 +318,43 @@ body.instituto-federal {
 }
 .instituto-federal__follow-us {
     margin-bottom: 5vh;
+}
+
+#success-banner {
+    visibility: hidden;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: visibility 0.5s;
+}
+
+#success-banner.visible {
+    visibility: visible;
+}
+
+.error-message {
+    color: var(--error);
+    margin-top: 5px;
+    display: none;
+}
+.error {
+    border-color: var(--error);
+}
+
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
