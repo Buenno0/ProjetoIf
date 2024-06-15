@@ -1,10 +1,14 @@
 <?php
-//nao deixe nessa pagina se nao for post
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POST['avaliacao'])) {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $avaliacao = htmlspecialchars(trim($_POST['avaliacao']));
-} 
+} else {
+    // Redirecione o usuário se os dados não estiverem presentes
+    header('Location: avaliacoes_user.html');
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
