@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $avaliacao = htmlspecialchars(trim($_POST['avaliacao']));
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img class="icon" src="/ProjetoIf/assets/bad.svg" alt="ruim">
                 Ruim
             </button>
-            <button class="btn" id="medio">
+            <button class="btn" id="médio">
                 <img class="icon" src="/ProjetoIf/assets/mid.svg" alt="medio">
                 Médio
             </button>
