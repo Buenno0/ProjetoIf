@@ -1,13 +1,21 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POST['avaliacao'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POST['avaliacao']) && isset($_POST['feedback']) && isset($_POST['token'])) {
+    if (!hash_equals($_SESSION['token'], $_POST['token'])) {
+        // Token inválido, possível CSRF
+        die('Token inválido.');
+    }
+
     $nome = htmlspecialchars(trim($_POST['nome']));
     $avaliacao = htmlspecialchars(trim($_POST['avaliacao']));
-    
-    // Gere um novo token
-    $token = bin2hex(random_bytes(32));
-    $_SESSION['token'] = $token;
+    $feedback = htmlspecialchars(trim($_POST['feedback']));
+
+    // Salve os dados no banco de dados ou processe conforme necessário
+
+    // Redirecione para a página de obrigado
+    header('Location: obrigado.html');
+    exit();
 } else {
     // Redirecione o usuário se os dados não estiverem presentes
     header('Location: avaliacoes_user.html');
