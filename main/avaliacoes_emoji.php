@@ -1,14 +1,19 @@
 <?php
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POST['avaliacao'])) {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $avaliacao = htmlspecialchars(trim($_POST['avaliacao']));
+    
+    // Gere um novo token
+    $token = bin2hex(random_bytes(32));
+    $_SESSION['token'] = $token;
 } else {
     // Redirecione o usuário se os dados não estiverem presentes
     header('Location: avaliacoes_user.html');
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,9 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/ProjetoIf/styles/style.css">
     <title>Feedback</title>
-    <style>
-  
-    </style>
 </head>
 <body>
     <header>
@@ -72,13 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         successBanner.classList.add('visible');
+                        localStorage.setItem('feedbackSubmitted', 'true');
                         setTimeout(() => {
                             successBanner.classList.remove('visible');
                             window.location.href = 'obrigado.html';
                         }, 3000);
                     }
                 };
-                xhr.send('feedback=' + encodeURIComponent(selectedFeedback) + '&nome=' + encodeURIComponent('<?php echo $nome; ?>') + '&avaliacao=' + encodeURIComponent('<?php echo $avaliacao; ?>'));
+                xhr.send('feedback=' + encodeURIComponent(selectedFeedback) + '&nome=' + encodeURIComponent('<?php echo $nome; ?>') + '&avaliacao=' + encodeURIComponent('<?php echo $avaliacao; ?>') + '&token=' + encodeURIComponent('<?php echo $token; ?>'));
             } else {
                 errorBanner.classList.add('visible');
                 setTimeout(() => {

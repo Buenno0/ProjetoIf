@@ -1,11 +1,23 @@
 <?php
+session_start();
 require_once("config.php");
 
 // Verificar se a requisição é POST e se os parâmetros estão presentes
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['feedback']) && isset($_POST['nome']) && isset($_POST['avaliacao'])) {
-    $feedback = $_POST['feedback'];
-    $nome = $_POST['nome'];
-    $avaliacao = $_POST['avaliacao'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['feedback']) && isset($_POST['nome']) && isset($_POST['avaliacao']) && isset($_POST['token'])) {
+    $feedback = htmlspecialchars(trim($_POST['feedback']));
+    $nome = htmlspecialchars(trim($_POST['nome']));
+    $avaliacao = htmlspecialchars(trim($_POST['avaliacao']));
+    $token = $_POST['token'];
+
+    // Verificar o token
+    if (!isset($_SESSION['token']) || $token !== $_SESSION['token']) {
+        // Token inválido, redirecionar ou mostrar uma mensagem de erro
+        echo 'Token inválido.';
+        exit();
+    }
+
+    // Invalide o token
+    unset($_SESSION['token']);
 
     // Preparar a consulta SQL
     $stmt = $conn->prepare("INSERT INTO feedback (nome, feedback, conteudo) VALUES (?, ?, ?)");
