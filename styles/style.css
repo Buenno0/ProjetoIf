@@ -9,6 +9,7 @@
     --hover--bg: #f0f0f0; /* Cor de fundo no hover */
     --hover--btn: #45a049; /* Cor de fundo no hover do botão */
     --error: red; /* Cor de erro */
+    --success: #4CAF50; /* Cor de sucesso */
 }
 
 * {
@@ -326,7 +327,7 @@ body.instituto-federal {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #4CAF50;
+    background-color: var(--success);
     color: white;
     padding: 15px 20px;
     border-radius: 5px;
@@ -339,6 +340,25 @@ body.instituto-federal {
     visibility: visible;
 }
 
+#error-banner {
+    visibility: hidden;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--error);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: visibility 0.5s;
+}
+
+#error-banner.visible {
+    visibility: visible;
+}
+
 .error-message {
     color: var(--error);
     margin-top: 5px;
@@ -347,6 +367,7 @@ body.instituto-federal {
 .error {
     border-color: var(--error);
 }
+
 
 .hidden {
     display: none;

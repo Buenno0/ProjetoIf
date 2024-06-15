@@ -16,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/ProjetoIf/styles/style.css">
     <title>Feedback</title>
+    <style>
+  
+    </style>
 </head>
 <body>
     <header>
@@ -41,12 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
     </div>
     
     <div id="success-banner" class="hidden">Feedback enviado com sucesso!</div>
+    <div id="error-banner" class="hidden">Por favor, selecione uma das opções.</div>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.btn');
         let selectedFeedback = '';
         const successBanner = document.getElementById('success-banner');
+        const errorBanner = document.getElementById('error-banner');
         const addFeedbackButton = document.querySelector('.add-feedback');
 
         buttons.forEach(button => {
@@ -75,7 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
                 };
                 xhr.send('feedback=' + encodeURIComponent(selectedFeedback) + '&nome=' + encodeURIComponent('<?php echo $nome; ?>') + '&avaliacao=' + encodeURIComponent('<?php echo $avaliacao; ?>'));
             } else {
-                alert('Por favor, selecione uma opção de feedback.');
+                errorBanner.classList.add('visible');
+                setTimeout(() => {
+                    errorBanner.classList.remove('visible');
+                }, 1300);
             }
         });
     });
