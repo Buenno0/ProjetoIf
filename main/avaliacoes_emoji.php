@@ -1,24 +1,11 @@
 <?php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POST['avaliacao']) && isset($_POST['feedback']) && isset($_POST['token'])) {
-    if (!hash_equals($_SESSION['token'], $_POST['token'])) {
-        // Token inválido, possível CSRF
-        die('Token inválido.');
-    }
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POST['avaliacao'])) {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $avaliacao = htmlspecialchars(trim($_POST['avaliacao']));
-    $feedback = htmlspecialchars(trim($_POST['feedback']));
 
-    // Salve os dados no banco de dados ou processe conforme necessário
-
-    // Redirecione para a página de obrigado
-    header('Location: obrigado.html');
-    exit();
 } else {
     // Redirecione o usuário se os dados não estiverem presentes
-    header('Location: avaliacoes_user.html');
+    header('Location: avaliacoes_user.php');
     exit();
 }
 ?>
@@ -89,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
                         }, 3000);
                     }
                 };
-                xhr.send('feedback=' + encodeURIComponent(selectedFeedback) + '&nome=' + encodeURIComponent('<?php echo $nome; ?>') + '&avaliacao=' + encodeURIComponent('<?php echo $avaliacao; ?>') + '&token=' + encodeURIComponent('<?php echo $token; ?>'));
+                xhr.send('feedback=' + encodeURIComponent(selectedFeedback) + '&nome=' + encodeURIComponent('<?php echo $nome; ?>') + '&avaliacao=' + encodeURIComponent('<?php echo $avaliacao; ?>'));
             } else {
                 errorBanner.classList.add('visible');
                 setTimeout(() => {

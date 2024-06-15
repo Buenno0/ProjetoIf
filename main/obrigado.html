@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/ProjetoIf/styles/style.css">
     <title>Instituto Federal</title>
-
 </head>
 <body class="instituto-federal">
     <div class="instituto-federal__container">
@@ -19,11 +18,14 @@
             <a href="https://www.instagram.com/ifspitapetininga/?hl=pt"><img class="instituto-federal__social-icon" src="/ProjetoIf/assets/instagram.svg" alt="Instagram"></a>
         </div>
     </div>
-</body>
-<script>
 
-        // Limpe a indicação de envio no localStorage
-        localStorage.removeItem('feedbackSubmitted');
-    
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var forms = document.querySelectorAll("form");
+            forms.forEach(function(form) {
+                form.reset();
+            });
+        });
+    </script>
+</body>
 </html>
