@@ -365,7 +365,6 @@ body.instituto-federal {
     transition: visibility 0s 0s, opacity 0.5s ease-in-out;
 }
 
-
 .error-message {
     color: var(--error);
     margin-top: 5px;
@@ -374,7 +373,6 @@ body.instituto-federal {
 .error {
     border-color: var(--error);
 }
-
 
 .hidden {
     display: none;
