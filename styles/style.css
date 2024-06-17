@@ -303,7 +303,7 @@ body.instituto-federal {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
+    font-size: 3vh;
 }
 
 .instituto-federal__social-icons {
@@ -343,7 +343,7 @@ body.instituto-federal {
     transition: visibility 0s 0s, opacity 0.5s ease-in-out;
 }
 
-#error-banner {
+#error-banner, #duplicate-banner {
     visibility: hidden;
     opacity: 0;
     position: fixed;
@@ -360,6 +360,12 @@ body.instituto-federal {
 }
 
 #error-banner.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.5s ease-in-out;
+}
+
+#duplicate-banner.visible {
     visibility: visible;
     opacity: 1;
     transition: visibility 0s 0s, opacity 0.5s ease-in-out;

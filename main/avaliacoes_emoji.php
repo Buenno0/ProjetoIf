@@ -39,9 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
         </div>
         <button class="add-feedback">Adicionar avaliação</button>
     </div>
-    
+
     <div id="success-banner" class="hidden">Feedback enviado com sucesso!</div>
     <div id="error-banner" class="hidden">Por favor, selecione uma das opções.</div>
+    <div id="duplicate-banner" class="hidden">Feedback já enviado anteriormente.</div>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -49,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
         let selectedFeedback = '';
         const successBanner = document.getElementById('success-banner');
         const errorBanner = document.getElementById('error-banner');
+        const duplicateBanner = document.getElementById('duplicate-banner');
         const addFeedbackButton = document.querySelector('.add-feedback');
 
         buttons.forEach(button => {
@@ -67,13 +69,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
                 xhr.open('POST', 'enviar_feedback.php', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        successBanner.classList.add('visible');
-                        localStorage.setItem('feedbackSubmitted', 'true');
-                        setTimeout(() => {
-                            successBanner.classList.remove('visible');
-                            window.location.href = 'obrigado.html';
-                        }, 3000);
+                    if (xhr.readyState === 4) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (xhr.status === 200 && response.success) {
+                            successBanner.classList.add('visible');
+                            localStorage.setItem('feedbackSubmitted', 'true');
+                            setTimeout(() => {
+                                successBanner.classList.remove('visible');
+                                window.location.href = 'obrigado.html';
+                            }, 3000);
+                        } else if (response.message === 'Feedback já enviado anteriormente.') {
+                            duplicateBanner.classList.add('visible');
+                            setTimeout(() => {
+                                duplicateBanner.classList.remove('visible');
+                                addFeedbackButton.classList.remove('disabled');
+                            }, 3000);
+                        } else {
+                            errorBanner.classList.add('visible');
+                            setTimeout(() => {
+                                errorBanner.classList.remove('visible');
+                                addFeedbackButton.classList.remove('disabled');
+                            }, 3000);
+                        }
                     }
                 };
                 xhr.send('feedback=' + encodeURIComponent(selectedFeedback) + '&nome=' + encodeURIComponent('<?php echo $nome; ?>') + '&avaliacao=' + encodeURIComponent('<?php echo $avaliacao; ?>'));
@@ -88,3 +105,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
     </script>
 </body>
 </html>
+

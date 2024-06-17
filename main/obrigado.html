@@ -10,6 +10,7 @@
     <div class="instituto-federal__container">
         <img class="instituto-federal__logo" src="/ProjetoIf/assets/ifsp_logo_itp.png" alt="Instituto Federal São Paulo - Campus Itapetininga">
         <div class="instituto-federal__message-container">
+            <h1 class="instituto-federal__message">Sua avaliação foi salva e será exibida.</h1>
             <h1 class="instituto-federal__message">Obrigado, sua opinião é muito importante para nós.</h1>
         </div>
         <p class="instituto-federal__follow-us">Nos acompanhe em nossas redes sociais:</p>
@@ -17,15 +18,14 @@
             <a href="https://web.facebook.com/ifspitape/?locale=pt_BR&_rdc=1&_rdr"><img class="instituto-federal__social-icon" src="/ProjetoIf/assets/facebook.svg" alt="Facebook"></a>
             <a href="https://www.instagram.com/ifspitapetininga/?hl=pt"><img class="instituto-federal__social-icon" src="/ProjetoIf/assets/instagram.svg" alt="Instagram"></a>
         </div>
+        <div class="instituto-federal__redirect-message">
+            <p>Você será redirecionado. Caso não queira esperar, <a href="/ProjetoIf/main/avaliacoes_user.php">clique aqui</a>.</p>
+        </div>
     </div>
-
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var forms = document.querySelectorAll("form");
-            forms.forEach(function(form) {
-                form.reset();
-            });
-        });
+        setTimeout(() => {
+            window.location.href = '/ProjetoIf/main/avaliacoes_user.php';
+        }, 1000);
     </script>
 </body>
 </html>
