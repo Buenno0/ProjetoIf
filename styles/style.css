@@ -1,5 +1,5 @@
-
-    :root {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
     --green--if: #008000; /* Verde do if */
     --white--if: #ffffff; /* Branco */
     --grey--if: #f9f9f9;  /* Cinza claro */
@@ -16,7 +16,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 html, body {
     height: 100%;
@@ -27,7 +28,6 @@ body {
     background-color: var(--white--if);
     display: flex;
     flex-direction: column;
-   
 }
 
 .container {
@@ -249,16 +249,29 @@ label {
     margin-bottom: 10px;
 }
 
+.user_name {
+    display: flex;
+    align-items: center; /* Alinhar o texto verticalmente ao centro */
+}
+
 .user-icon {
     height: 50px;
     width: 40px;
     margin-right: 10px;
-    opacity: 0.8;
 }
-
+.texto {
+    margin-top: 0;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-family: "Raleway", sans-serif;
+    font-size: 2.3vh;
+    letter-spacing: 0.1vh;
+    word-spacing: 0.3vh;
+    line-height: 3.2vh;
+}
 .date {
     font-size: 14px;
-    color: #666;
+    color: var(--text--primary);
 }
 .criticas_h1{
     margin: 20px 0;
@@ -389,4 +402,9 @@ body.instituto-federal {
 .disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+.nome_span {
+    font-size: 0.9rem;
+    color: var(--text--primary);
+    opacity: 0.9;
 }
