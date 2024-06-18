@@ -1,1 +1,2 @@
 verifcar se contatos.html deve ser estatico ou dinamico
+verificar se tabela "sugestoes" deve ter a coluna visible

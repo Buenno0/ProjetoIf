@@ -56,7 +56,7 @@ header {
     border-bottom: 1px solid var(--border--if);
     /* position: sticky; */
     top: 0;
-    margin-bottom: 7vh;
+    margin-bottom: 2vh;
 }
 
 .back-button {
