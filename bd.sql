@@ -14,7 +14,7 @@ CREATE TABLE sugestoes (
     nome VARCHAR(65) NOT NULL,
     email VARCHAR(125) NOT NULL,
     conteudo TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 ----teste----
