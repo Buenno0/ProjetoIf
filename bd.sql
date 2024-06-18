@@ -8,3 +8,8 @@ CREATE TABLE feedback (
     modificado_por VARCHAR (65), 
     ultima_modificacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+----teste----
+UPDATE feedback
+SET visible = FALSE,
+modificado_por = 'teste'
+WHERE id = 3;
