@@ -19,6 +19,10 @@
     font-family: Arial, Helvetica, sans-serif;
     
 }
+a {
+    text-decoration: none;
+
+}
 html, body {
     height: 100%;
     margin: 0;
@@ -268,10 +272,12 @@ label {
     letter-spacing: 0.1vh;
     word-spacing: 0.3vh;
     line-height: 3.2vh;
+    
 }
 .date {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--text--primary);
+    opacity: 0.8;
 }
 .criticas_h1{
     margin: 20px 0;

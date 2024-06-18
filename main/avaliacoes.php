@@ -1,3 +1,22 @@
+<?php
+// Incluir a configuração do banco de dados
+require_once("config.php");
+
+// Selecionar os dados da tabela feedback
+$sql = "SELECT nome, feedback, conteudo, created_at FROM feedback WHERE visible = TRUE ORDER BY created_at DESC";
+$result = $conn->query($sql);
+
+$feedbacks = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $feedbacks[] = $row;
+    }
+} else {
+    echo "Nenhuma avaliação encontrada.";
+}
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,37 +32,34 @@
     </header>
     <div class="container_criticas">
         <h1 class="criticas_h1">Avaliações</h1>
-        <button class="add-review-button">Adicionar avaliação</button>
+        <a href="avaliacoes_user.php"><button class="add-review-button">Adicionar avaliação</button></a>
         <div class="reviews">
             <?php
-           require_once 'config.php';
-
-            // Consultar os dados da tabela feedback
-            $sql = "SELECT nome, conteudo, feedback, created_at FROM feedback order by created_at desc";
-            $result = $conn->query($sql);
-
-            
-
-            if ($result->num_rows > 0) {
-                // Exibir os dados de cada linha
-                while($row = $result->fetch_assoc()) {
-                    echo '<div class="review">';
-                    echo '    <div class="review-header">';
-                    echo '        <div class="user_name">';
-                    echo '            <img src="/ProjetoIf/assets/mid.svg" alt="User Icon" class="user-icon">';
-                    echo '            <span>' . htmlspecialchars($row['nome']) . '</span>';
-                    echo '        </div>';
-                    echo '        <span class="date">' . htmlspecialchars($row['created_at']) . '</span>';
-                    echo '    </div>';
-                    echo '    <p>' . nl2br(htmlspecialchars($row['conteudo'])) . '</p>';
-                    echo '</div>';
+            foreach ($feedbacks as $feedback) {
+                $icon = '';
+                switch ($feedback['feedback']) {
+                    case 'bom':
+                        $icon = 'good.svg';
+                        break;
+                    case 'médio':
+                        $icon = 'neutro.svg';
+                        break;
+                    case 'ruim':
+                        $icon = 'bad.svg';
+                        break;
                 }
-            } else {
-                echo "<p>Nenhuma avaliação encontrada.</p>";
-            }
 
-            // Fechar a conexão
-            $conn->close();
+                echo '<div class="review">';
+                echo '    <div class="review-header">';
+                echo '        <div class="user_name">';
+                echo '            <img src="/ProjetoIf/assets/' . $icon . '" alt="' . $feedback['feedback'] . '" class="user-icon">';
+                echo '            <span class="nome_span">' . htmlspecialchars($feedback['nome']) . '</span>';
+                echo '        </div>';
+                echo '        <span class="date">' . date('d/m/Y', strtotime($feedback['created_at'])) . '</span>';
+                echo '    </div>';
+                echo '    <p class="texto">' . htmlspecialchars($feedback['conteudo']) . '</p>';
+                echo '</div>';
+            }
             ?>
         </div>
     </div>
