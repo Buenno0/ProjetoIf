@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome']) && isset($_POS
                 Ruim
             </button>
             <button class="btn" id="médio">
-                <img class="icon" src="/ProjetoIf/assets/mid.svg" alt="medio">
+                <img class="icon" src="/ProjetoIf/assets/neutro.svg" alt="medio">
                 Médio
             </button>
             <button class="btn" id="bom">
