@@ -11,11 +11,82 @@
         <img src="/ProjetoIf/assets/ifsp_logo_itp.png" alt="Instituto Federal" class="logo">
     </header>
     <div class="container">
-        <h1>Deixe sua Crítica</h1>
-        <form action="" method="post">
-        <textarea name="critica" placeholder="Explique sua critica.." id="1"></textarea>
-    </div>   
-    <button class="add-feedback">Adicionar crítica</button>
+        <h1>Deixe sua crítica</h1>
+        <form id="suggestionForm">
+            <textarea name="sugestao" id="critica" placeholder="Explique sua crítica..."></textarea>
+            <div id="sugestaoError" class="error-message">A crítica não pode estar vazia.</div>
+            <button class="add-feedback" type="submit">Adicionar crítica</button>
         </form>
+    </div>
+    <div id="success-banner" class="hidden">Crítica enviada com sucesso!</div>
+    <div id="error-banner" class="hidden">Erro ao enviar crítica. Tente novamente.</div>
 </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('suggestionForm');
+        const critica = document.getElementById('critica');
+        const sugestaoError = document.getElementById('sugestaoError');
+        const submitButton = document.querySelector('.add-feedback');
+        const successBanner = document.getElementById('success-banner');
+        const errorBanner = document.getElementById('error-banner');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let valid = true;
+
+            // Reset error states
+            critica.classList.remove('error');
+            sugestaoError.style.display = 'none';
+
+            // Validação do campo sugestão
+            if (critica.value.trim() === '') {
+                critica.classList.add('error');
+                sugestaoError.style.display = 'block';
+                critica.focus();
+                valid = false;
+            }
+
+            // Se as validações passarem, envia o formulário via AJAX
+            if (valid) {
+                submitButton.disabled = true;
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'enviar_critica.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            const response = JSON.parse(xhr.responseText);
+                            if (response.success) {
+                                successBanner.classList.add('visible');
+                                setTimeout(() => {
+                                    successBanner.classList.remove('visible');
+                                    submitButton.disabled = false;
+                                    form.reset();
+                                    window.location.href = 'obrigado.html';
+                                }, 2000);
+                            } else {
+                                errorBanner.innerHTML = response.errors.join('<br>');
+                                errorBanner.classList.add('visible');
+                                setTimeout(() => {
+                                    errorBanner.classList.remove('visible');
+                                    submitButton.disabled = false;
+                                }, 3000);
+                            }
+                        } else {
+                            errorBanner.innerHTML = 'Erro ao enviar crítica. Tente novamente.';
+                            errorBanner.classList.add('visible');
+                            setTimeout(() => {
+                                errorBanner.classList.remove('visible');
+                                submitButton.disabled = false;
+                            }, 3000);
+                        }
+                    }
+                };
+                const data = 'critica=' + encodeURIComponent(critica.value);
+                xhr.send(data);
+            }
+        });
+    });
+</script>
