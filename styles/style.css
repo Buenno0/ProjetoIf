@@ -153,6 +153,7 @@ label {
     transition: background-color 0.3s ease;
     height: 12vh;
     opacity: 0.9;
+    width: 100%;
 }
 .btn.selected {
     background-color: var(--hover--bg); 
