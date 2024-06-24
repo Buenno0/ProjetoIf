@@ -1,17 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto Federal - Feedback</title>
-    <link rel="stylesheet" href="/ProjetoIf/styles/style.css">
-</head>
-<body>
-    <header>
-        <a href="#"><img class="back-button" src="/ProjetoIf/assets/back-button.svg" alt="Voltar"></a>
-        <img src="/ProjetoIf/assets/ifsp_logo_itp.png" alt="Instituto Federal" class="logo">
-    </header>
+<?php include '../includes/header.php'; ?>
     <div class="container">
         <h1>Contatos</h1>
         <div class="buttons">

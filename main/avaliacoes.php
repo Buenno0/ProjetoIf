@@ -16,20 +16,8 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliações - Instituto Federal</title>
-    <link rel="stylesheet" href="/ProjetoIf/styles/style.css">
-</head>
+<?php include '../includes/header.php'; ?>
 <body>
-    <header>
-        <a href="#"><img class="back-button" src="/ProjetoIf/assets/back-button.svg" alt="Voltar"></a>
-        <img src="/ProjetoIf/assets/ifsp_logo_itp.png" alt="Instituto Federal" class="logo">
-    </header>
     <div class="container_criticas">
         <h1 class="criticas_h1">Avaliações</h1>
         <a href="avaliacoes_user.php"><button class="add-review-button">Adicionar avaliação</button></a>
